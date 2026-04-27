@@ -12,9 +12,8 @@ This project is a single-page HTML recipe website for **Spicy Braised Tofu**, ad
 
 ## 🌐 Live Site
 
-[View the live page here](https://your-username.github.io/your-repo-name/)
+[View the live page here](https://femiux.github.io/recipe/)
 
-> Replace the link above with your actual GitHub Pages URL after deployment.
 
 ---
 
