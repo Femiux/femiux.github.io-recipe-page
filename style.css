@@ -32,6 +32,14 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--colour-bg);
+  color: var(--colour-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
 
 
 /* ── 3. HEADER — ID selector ──────────────────────────────── */
@@ -179,6 +187,11 @@ u      { text-decoration-color: var(--colour-accent); text-decoration-thickness:
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* Hover effect on hero image */
+#hero-image:hover {
+  transform: scale(1.015);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+}
 
 /* ── 8. RECIPE DETAILS GRID — Flexbox + class selectors ────── */
 
@@ -201,6 +214,11 @@ u      { text-decoration-color: var(--colour-accent); text-decoration-thickness:
   transition: border-top-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover effect on detail cards */
+.detail-card:hover {
+  border-top-color: var(--colour-primary);
+  transform: translateY(-3px);
+}
 
 .detail-label {
   display: block;
@@ -258,6 +276,13 @@ u      { text-decoration-color: var(--colour-accent); text-decoration-thickness:
 
 .instruction-step:last-child {
   border-bottom: none;
+}
+
+/* Hover highlight on each step */
+.instruction-step:hover {
+  background-color: var(--colour-highlight);
+  border-radius: var(--radius);
+  padding-left: 1rem;
 }
 
 .instruction-list li::marker {
@@ -324,6 +349,12 @@ u      { text-decoration-color: var(--colour-accent); text-decoration-thickness:
   background-color: var(--colour-bg);
 }
 
+/* Row hover effect */
+#nutrition-table tbody tr:hover td {
+  background-color: var(--colour-highlight);
+  transition: background-color 0.2s ease;
+}
+
 
 /* ── 13. SOURCE LINK — class selector ─────────────────────── */
 
@@ -335,6 +366,10 @@ u      { text-decoration-color: var(--colour-accent); text-decoration-thickness:
   transition: color 0.2s ease, border-bottom-style 0.2s ease;
 }
 
+.source-link:hover {
+  color: var(--colour-accent);
+  border-bottom-style: solid;
+}
 
 
 /* ── 14. FOOTER — ID selector ─────────────────────────────── */
