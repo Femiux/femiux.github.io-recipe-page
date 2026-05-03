@@ -35,8 +35,10 @@ This project is a single-page HTML recipe website for **Spicy Braised Tofu**, ad
 ## 🗂️ Project Structure
 
 ```
-recipe-page/
+recipe/
 ├── index.html      # Main HTML file
+├── style.css       # External CSS stylesheet
+├── TOFU.jpg        # Recipe image
 └── README.md       # Project documentation
 ```
 
@@ -62,7 +64,11 @@ recipe-page/
 
 - Recipe content adapted from [Chef Lola's Kitchen](https://cheflolaskitchen.com/spicy-braised-tofu/)
 - Course: WEB 101 — Web Development Fundamentals, AltSchool Africa
+- Course: VERSION CONTROL WITH GIT & GITHUB
+- Course: STYLING THE WEB WITH CSS
+
+
 
 ---
 
-*Oluwafemi Fatuase · AltSchool Africa · Assignment 1 · 2026*
+*Oluwafemi Fatuase | ALT/SOE/BAR/026/0027· AltSchool Africa · Assignment 1, 1b · 2026*
