@@ -1,0 +1,382 @@
+/* ── 1. CSS VARIABLES ─────────────────────────────────────── */
+
+:root {
+  --colour-bg:         #faf7f2;
+  --colour-surface:    #ffffff;
+  --colour-primary:    #9b2335;
+  --colour-primary-dk: #6e1826;
+  --colour-accent:     #c9622f;
+  --colour-text:       #1c1008;
+  --colour-text-light: #5a4535;
+  --colour-border:     #e2d5c3;
+  --colour-highlight:  #fdecd0;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  --radius:    6px;
+  --shadow:    0 4px 20px rgba(0, 0, 0, 0.08);
+  --max-width: 820px;
+}
+
+
+/* ── 2. RESET & BASE ───────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* ── 3. HEADER — ID selector ──────────────────────────────── */
+
+#site-header {
+  background-color: var(--colour-primary);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  color: #ffffff;
+  padding: 4rem 2rem 5rem;
+  text-align: center;
+  clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+/* Class selector — inner wrapper */
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Class selector — small label above title */
+.header-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.8rem;
+}
+
+/* ID selector — main recipe title */
+#recipe-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+/* Class selector — subtitle below title */
+.header-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.82;
+  font-style: italic;
+}
+
+
+/* ── 4. MAIN LAYOUT — ID selector ─────────────────────────── */
+
+#main-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+#recipe-article {
+  margin-top: -2rem;
+}
+
+
+/* ── 5. RECIPE SECTIONS — class selector ──────────────────── */
+
+.recipe-section {
+  background-color: var(--colour-surface);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 2.2rem;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.5s ease both;
+}
+
+/* Stagger each section's fade-in */
+.recipe-section:nth-child(1) { animation-delay: 0.05s; }
+.recipe-section:nth-child(2) { animation-delay: 0.10s; }
+.recipe-section:nth-child(3) { animation-delay: 0.15s; }
+.recipe-section:nth-child(4) { animation-delay: 0.20s; }
+.recipe-section:nth-child(5) { animation-delay: 0.25s; }
+.recipe-section:nth-child(6) { animation-delay: 0.30s; }
+.recipe-section:nth-child(7) { animation-delay: 0.35s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ── 6. HEADINGS — class selectors ────────────────────────── */
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--colour-primary);
+  border-bottom: 2px solid var(--colour-border);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.sub-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--colour-text-light);
+  margin: 1.2rem 0 0.5rem;
+}
+
+
+/* ── 7. DESCRIPTION & FORMATTING — class + element selectors ─ */
+
+.recipe-description {
+  font-size: 1.05rem;
+  color: var(--colour-text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.9;
+}
+
+strong { color: var(--colour-primary-dk); }
+em     { color: var(--colour-accent); font-style: italic; }
+mark   { background-color: var(--colour-highlight); color: var(--colour-text); padding: 0 3px; border-radius: 2px; }
+u      { text-decoration-color: var(--colour-accent); text-decoration-thickness: 2px; }
+
+/* ID selector — hero image */
+#hero-image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  border: 4px solid var(--colour-bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+/* ── 8. RECIPE DETAILS GRID — Flexbox + class selectors ────── */
+
+.details-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.detail-card {
+  flex: 1 1 130px;
+  background-color: var(--colour-bg);
+  border: 1px solid var(--colour-border);
+  border-top: 3px solid var(--colour-accent);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  text-align: center;
+  transition: border-top-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.detail-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--colour-text-light);
+  margin-bottom: 0.3rem;
+}
+
+.detail-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--colour-primary);
+}
+
+
+/* ── 9. INGREDIENTS — class selector ──────────────────────── */
+
+.ingredient-list {
+  padding-left: 1.4rem;
+}
+
+.ingredient-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--colour-border);
+  font-size: 0.97rem;
+}
+
+.ingredient-list li:last-child {
+  border-bottom: none;
+}
+
+.ingredient-list li::marker {
+  color: var(--colour-accent);
+  font-size: 1.1em;
+}
+
+
+/* ── 10. INSTRUCTIONS — class selectors ───────────────────── */
+
+.instruction-list {
+  padding-left: 1.6rem;
+}
+
+.instruction-step {
+  padding: 0.7rem 0 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--colour-border);
+  font-size: 0.97rem;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.instruction-step:last-child {
+  border-bottom: none;
+}
+
+.instruction-list li::marker {
+  color: var(--colour-primary);
+  font-family: var(--font-display);
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+
+/* ── 11. TIPS ASIDE — ID + class selectors ─────────────────── */
+
+#tips {
+  background-color: #fff8f0;
+  border-left: 4px solid var(--colour-accent);
+}
+
+.tips-list {
+  padding-left: 1.4rem;
+}
+
+.tips-list li {
+  padding: 0.45rem 0;
+  font-size: 0.95rem;
+  color: var(--colour-text-light);
+}
+
+.tips-list li::marker {
+  color: var(--colour-accent);
+}
+
+
+/* ── 12. NUTRITION TABLE — ID selector ────────────────────── */
+
+.nutrition-note {
+  font-size: 0.85rem;
+  color: var(--colour-text-light);
+  margin-bottom: 0.8rem;
+}
+
+#nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+#nutrition-table th {
+  background-color: var(--colour-primary);
+  color: #ffffff;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+#nutrition-table td {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--colour-border);
+}
+
+/* Zebra striping on table rows */
+#nutrition-table tbody tr:nth-child(even) td {
+  background-color: var(--colour-bg);
+}
+
+
+/* ── 13. SOURCE LINK — class selector ─────────────────────── */
+
+.source-link {
+  color: var(--colour-primary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--colour-primary);
+  font-weight: 500;
+  transition: color 0.2s ease, border-bottom-style 0.2s ease;
+}
+
+
+
+/* ── 14. FOOTER — ID selector ─────────────────────────────── */
+
+#site-footer {
+  background-color: var(--colour-text);
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  font-size: 0.82rem;
+  padding: 1.5rem 1rem;
+  letter-spacing: 0.04em;
+}
+
+
+/* ── 15. RESPONSIVE — MOBILE ───────────────────────────────── */
+
+@media (max-width: 600px) {
+
+  #site-header {
+    padding: 3rem 1.2rem 4rem;
+    clip-path: none;
+  }
+
+  .recipe-section {
+    padding: 1.4rem 1.2rem;
+  }
+
+  /* Stack detail cards vertically on small screens */
+  .details-grid {
+    flex-direction: column;
+  }
+
+  .detail-card {
+    flex: 1 1 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #hero-image {
+    height: 220px;
+  }
+
+}
